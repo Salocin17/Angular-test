@@ -1,0 +1,18 @@
+<div class="container">
+<div *ngFor="let pokemon of pokemons" class="card-container" [ngStyle]="{'background': getColor(pokemon.types[0].type.name)}">
+    <p> {{pokemon.name}} </p>
+    <div class="container-pokemon">
+    <div class="poke-name">
+        <p>{{pokemon.types[0].type.name}}</p>
+    </div>
+    <div class="poke-image">
+        <img src={{pokemon.sprites.front_default}} alt="" >
+        <img src={{pokemon.sprites.back_default}} alt="" >
+    </div>
+    </div>
+    <button class="btn">Info</button>
+</div>
+</div>
+<div [ngStyle]="{display: 'flex'}">
+    <button class="btn altro" (click)="onClick(10)">Altro</button>
+</div>
