@@ -4,7 +4,7 @@
       [(ngModel)]="searchTerm"  />
 </div>
 <div class="container" >
-<div *ngFor="let pokemon of pokemons | searchFilter: searchTerm; index as i" class="card-container" [ngClass]="getColor(pokemon.types[0].type.name)">
+<div *ngFor="let pokemon of pokemons | searchFilter: searchTerm" class="card-container" [ngClass]="getColor(pokemon.types[0].type.name)">
     <p> {{pokemon.name}} </p>
     <div class="container-pokemon">
     <div class="poke-name">

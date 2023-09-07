@@ -25,8 +25,6 @@ export class ProvaComponent implements OnInit {
   }
 
   getColor(type: string){
-    console.log(type);
-    
     switch (type) {
       case 'grass': return 'grass';
       case 'fire': return 'fire';
