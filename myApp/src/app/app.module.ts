@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProvaComponent } from './prova/prova.component';
 import { HeaderComponent } from './header/header.component';
+import { CardInfoComponent } from './card-info/card-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProvaComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardInfoComponent
   ],
   imports: [
     BrowserModule,

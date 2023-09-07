@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from '../servizi/api.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { ApiService } from '../servizi/api.service';
 })
 export class ProvaComponent implements OnInit {
   pokemons: any[] = [];
+  pokeInfo: any = [];
+  infoActive = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -15,9 +17,9 @@ export class ProvaComponent implements OnInit {
     this.apiService.getPokemons(0, 50).subscribe((response: any) => response.results.forEach((element: { name: string; }) => {
       this.apiService.getData(element.name).subscribe((response: any) => {
         this.pokemons.push(response);
-        console.log(this.pokemons);
       })
     }))
+    
   }
 
   getPokemonData(){
@@ -26,32 +28,38 @@ export class ProvaComponent implements OnInit {
 
   getColor(type: string){
     switch (type) {
-      case 'grass': return '#51a158';
-      case 'fire': return '#f43636';
-      case 'normal': return 'lightgray';
-      case 'water': return 'lightblue';
-      case 'poison': return '#c869d9';
-      case 'ground': return '#e3ccad';
-      case 'bug': return '#bce471';
-      case 'electric': return '#7385ec';
-      case 'fairy': return '#f0a4c8';
-      case 'fighting': return '#f8734f';
-      case 'psychic': return '#f6f154';
-      case 'rock': return '#828282';
-      case 'ghost': return '#655469';
+      case 'grass': return 'grass';
+      case 'fire': return 'fire';
+      case 'normal': return 'normal';
+      case 'water': return 'water';
+      case 'poison': return 'poison';
+      case 'ground': return 'ground';
+      case 'bug': return 'bug';
+      case 'electric': return 'electric';
+      case 'fairy': return 'fairy';
+      case 'fighting': return 'fighting';
+      case 'psychic': return 'psychic';
+      case 'rock': return 'rock';
+      case 'ghost': return 'ghost';
       default: return 'white'
     }
   }
 
-  onClick(e: number){
+  getMore(e: number){
     this.apiService.getPokemons(this.pokemons.length, e).subscribe((response: any) => response.results.forEach((element: { name: string; }) => {
       this.apiService.getData(element.name).subscribe((response: any) => {
         this.pokemons.push(response);
-        console.log(this.pokemons);
       })
     }))
-    
   }
+
+  getInfo (name: any) {
+    this.apiService.getData(name).subscribe((response: any) => {
+      this.pokeInfo.push(response);
+      this.infoActive = !this.infoActive;
+    })
+  }
+
 
 }
 

@@ -1,5 +1,5 @@
 <div class="container">
-<div *ngFor="let pokemon of pokemons" class="card-container" [ngStyle]="{'background': getColor(pokemon.types[0].type.name)}">
+<div *ngFor="let pokemon of pokemons" class="card-container" [ngClass]="getColor(pokemon.types[0].type.name)">
     <p> {{pokemon.name}} </p>
     <div class="container-pokemon">
     <div class="poke-name">
@@ -10,9 +10,10 @@
         <img src={{pokemon.sprites.back_default}} alt="" >
     </div>
     </div>
-    <button class="btn">Info</button>
+    <button class="btn" (click)="getInfo(pokemon.name)">Info</button>
 </div>
 </div>
 <div [ngStyle]="{display: 'flex'}">
-    <button class="btn altro" (click)="onClick(10)">Altro</button>
+    <button class="btn altro" (click)="getMore(10)">Altro</button>
+    <app-card-info *ngIf="infoActive" [info]="pokeInfo"></app-card-info>
 </div>

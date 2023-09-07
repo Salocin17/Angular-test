@@ -40,3 +40,43 @@
     background-color: rgb(243, 201, 36);
     margin: 0 auto;
 }
+
+.grass {
+    background-color: #51a158;
+}
+.fire {
+    background-color: #f43636;
+}
+.normal {
+    background-color: lightgray;
+}
+.water {
+    background-color: lightblue;
+}
+.poison {
+    background-color: #c869d9;
+}
+.ground {
+    background-color: #e3ccad;
+}
+.bug {
+    background-color: #bce471;
+}
+.electric {
+    background-color: #7385ec;
+}
+.fairy {
+    background-color: #f0a4c8;
+}
+.fighting {
+    background-color: #f8734f;
+}
+.psychic {
+    background-color: #f6f154;
+}
+.rock {
+    background-color: #828282;
+}
+.ghost {
+    background-color: #655469;
+}
