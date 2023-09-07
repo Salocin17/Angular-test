@@ -10,6 +10,8 @@ export class ProvaComponent implements OnInit {
   pokemons: any[] = [];
   pokeInfo: any = [];
   infoActive = false;
+  pokemonFiltered: any[] = [];
+  searchTerm: any = '';
 
   constructor(private apiService: ApiService) { }
 
@@ -22,11 +24,9 @@ export class ProvaComponent implements OnInit {
     
   }
 
-  getPokemonData(){
-    
-  }
-
   getColor(type: string){
+    console.log(type);
+    
     switch (type) {
       case 'grass': return 'grass';
       case 'fire': return 'fire';
@@ -70,6 +70,10 @@ export class ProvaComponent implements OnInit {
         }
     }
 
-
+    // search(value: string): void {
+    //   this.pokemonFiltered = this.pokemons.filter((val) =>
+    //     val.name.toLowerCase().includes(value)
+    //   );
+    // }
 }
 

@@ -1,45 +1,4 @@
-.container {
-    width: 100%;
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    padding: 1rem;
-}
-
-.card-container{
-    font-weight: bold;
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 200px;
-    width: 300px;
-    border-radius: 15px;
-    background-color: #51a158;
-    box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
-}
-
-.container-pokemon {
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.btn {
-    border-style: none;
-    padding:0.5rem 1rem;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.603);
-    font-weight: 800;
-    cursor: pointer;
-}
-
-.altro {
-    background-color: rgb(243, 201, 36);
-    margin: 0 auto;
-}
+/* Pokemontypes */
 
 .grass {
     background-color: #51a158;
@@ -80,3 +39,55 @@
 .ghost {
     background-color: #655469;
 }
+
+.container {
+    width: 100%;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    padding: 1rem;
+}
+
+.card-container{
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+}
+
+.container-pokemon {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    border-style: none;
+    padding:0.5rem 1rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.603);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.altro {
+    background-color: rgb(243, 201, 36);
+    margin: 0 auto;
+}
+
+.searchBar {
+    width: 300px;
+    height: 30px;
+    padding: 0.5rem;
+    border-style: none;
+    border-radius: 15px;
+    background-color: rgba(186, 186, 186, 0.186);
+}
+
