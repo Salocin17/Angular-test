@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-info',
@@ -7,13 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardInfoComponent implements OnInit {
 
-  @Input() info: any;
-
-  ngOnInit(): void {
-    console.log(this.info);
-    
-  }
-
+  @Input() data: any;
+  pokeInfo: any = [];
   
 
+  ngOnInit(): void {
+    
+    console.log(this.data);
+    this.pokeInfo.push(this.data)
+  }
+
+  getColor(e: number) {
+    console.log(e);
+  }
 }

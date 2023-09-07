@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { ApiService } from '../servizi/api.service';
 
 @Component({
@@ -41,7 +41,7 @@ export class ProvaComponent implements OnInit {
       case 'psychic': return 'psychic';
       case 'rock': return 'rock';
       case 'ghost': return 'ghost';
-      default: return 'white'
+      default: return 'white';
     }
   }
 
@@ -55,10 +55,20 @@ export class ProvaComponent implements OnInit {
 
   getInfo (name: any) {
     this.apiService.getData(name).subscribe((response: any) => {
-      this.pokeInfo.push(response);
+      if (!this.infoActive) {
+          this.pokeInfo.splice(0)
+          this.pokeInfo.push(response);
+      } 
       this.infoActive = !this.infoActive;
     })
   }
+
+  @HostListener('document:click', ['$event'])
+    documentClick(event: MouseEvent) {
+        if (this.infoActive) {
+          this.infoActive = !this.infoActive;
+        }
+    }
 
 
 }

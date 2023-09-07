@@ -1,1 +1,36 @@
-<p>card-info works!</p>
+<div *ngFor="let info of pokeInfo" class="info-container"> 
+    <div class="info-card-title">
+        <span style="font-size: 2.5rem; font-weight: bold;">{{info[0].name}}</span>
+    </div>
+    <div class="info-card-box">
+        <div class="info-stats">
+            <div class="info-card">
+                <span>Base experience:</span><span>{{info[0].base_experience}}</span>
+            </div>
+            <div class="info-card">
+                <span>HP:</span><span>{{info[0].stats[0].base_stat}}</span>
+            </div>
+            <div class="info-card">
+                <span>Attack:</span><span>{{info[0].stats[1].base_stat}}</span>
+            </div>
+            <div class="info-card">
+                <span>Defense:</span><span>{{info[0].stats[2].base_stat}}</span>
+            </div>
+            <div class="info-card">
+                <span>Defense:</span><span>{{info[0].stats[2].base_stat}}</span>
+            </div>
+            <div class="info-card">
+                <span>Defense:</span><span>{{info[0].stats[2].base_stat}}</span>
+            </div>
+            <div class="info-card">
+                <span>Defense:</span><span>{{info[0].stats[2].base_stat}}</span>
+            </div>
+            <div class="info-card">
+                <span>Defense:</span><span>{{info[0].stats[2].base_stat}}</span>
+            </div>
+        </div>
+        <div style="height: 200px; width: 150px; padding: 1rem;">
+            <img src="{{info[0].sprites.front_default}}" alt="" style="height: 100%;">
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" >
 <div *ngFor="let pokemon of pokemons" class="card-container" [ngClass]="getColor(pokemon.types[0].type.name)">
     <p> {{pokemon.name}} </p>
     <div class="container-pokemon">
@@ -15,5 +15,5 @@
 </div>
 <div [ngStyle]="{display: 'flex'}">
     <button class="btn altro" (click)="getMore(10)">Altro</button>
-    <app-card-info *ngIf="infoActive" [info]="pokeInfo"></app-card-info>
 </div>
+<app-card-info *ngIf="infoActive" [data]="pokeInfo"></app-card-info>
