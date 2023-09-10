@@ -43,8 +43,8 @@
 
 .info-container{
     width: 600px;
-    height: 500px;
-    background-color: rgb(182, 182, 182);
+    height: 450px;
+    background-color: rgb(237, 237, 237);
     border-radius: 15px;
     box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
     position: fixed;
@@ -55,7 +55,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 1.5rem;
 }
 
 .info-stats {

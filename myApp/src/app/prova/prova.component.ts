@@ -12,6 +12,8 @@ export class ProvaComponent implements OnInit {
   infoActive = false;
   pokemonFiltered: any[] = [];
   searchTerm: any = '';
+  filteredPokemons: any[] = [];
+  selectedType: string = 'all';
 
   constructor(private apiService: ApiService) { }
 
@@ -19,28 +21,10 @@ export class ProvaComponent implements OnInit {
     this.apiService.getPokemons(0, 50).subscribe((response: any) => response.results.forEach((element: { name: string; }) => {
       this.apiService.getData(element.name).subscribe((response: any) => {
         this.pokemons.push(response);
+        this.filteredPokemons = this.pokemons;
+        console.log(this.pokemons);
       })
     }))
-    
-  }
-
-  getColor(type: string){
-    switch (type) {
-      case 'grass': return 'grass';
-      case 'fire': return 'fire';
-      case 'normal': return 'normal';
-      case 'water': return 'water';
-      case 'poison': return 'poison';
-      case 'ground': return 'ground';
-      case 'bug': return 'bug';
-      case 'electric': return 'electric';
-      case 'fairy': return 'fairy';
-      case 'fighting': return 'fighting';
-      case 'psychic': return 'psychic';
-      case 'rock': return 'rock';
-      case 'ghost': return 'ghost';
-      default: return 'white';
-    }
   }
 
   getMore(e: number){
@@ -68,10 +52,16 @@ export class ProvaComponent implements OnInit {
         }
     }
 
-    // search(value: string): void {
-    //   this.pokemonFiltered = this.pokemons.filter((val) =>
-    //     val.name.toLowerCase().includes(value)
-    //   );
-    // }
+  filterByType(type: string): void {
+    this.selectedType = type;
+
+    if (type === 'all') {
+      this.filteredPokemons = this.pokemons;
+    } else {
+      this.filteredPokemons = this.pokemons.filter(pokemon =>
+        pokemon.types.some((t: { type: { name: string; }; }) => t.type.name === type)
+      );
+    }
+  }
 }
 

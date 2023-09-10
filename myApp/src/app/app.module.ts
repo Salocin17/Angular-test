@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { CardInfoComponent } from './card-info/card-info.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -18,12 +19,14 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     CardInfoComponent,
     SearchFilterPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

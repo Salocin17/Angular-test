@@ -2,9 +2,25 @@
     <input class="searchBar" type="text" name="searchTerm" 
       placeholder="Cerca Pokemon"
       [(ngModel)]="searchTerm"  />
+    <select #types name="" id="" (change)="filterByType(types.value)">
+        <option value="all">All</option>
+        <option value="grass">Grass</option>
+        <option value="fire">Fire</option>
+        <option value="normal">Normal</option>
+        <option value="water">Water</option>
+        <option value="poison">Poison</option>
+        <option value="ground">Ground</option>
+        <option value="bug">Bug</option>
+        <option value="electric">Electric</option>
+        <option value="fairy">Fairy</option>
+        <option value="fighting">Fighting</option>
+        <option value="psychic">Psychic</option>
+        <option value="rock">Rock</option>
+        <option value="ghost">Ghost</option>
+      </select> 
 </div>
-<div class="container" >
-<div *ngFor="let pokemon of pokemons | searchFilter: searchTerm" class="card-container" [ngClass]="getColor(pokemon.types[0].type.name)">
+<div *ngIf="filteredPokemons" class="container" >
+<div *ngFor="let pokemon of filteredPokemons | searchFilter:searchTerm " class="card-container" [ngClass]="(pokemon.types[0].type.name)">
     <p> {{pokemon.name}} </p>
     <div class="container-pokemon">
     <div class="poke-name">
@@ -18,7 +34,7 @@
     <button class="btn" (click)="getInfo(pokemon.name)">Info</button>
 </div>
 </div>
-<div [ngStyle]="{display: 'flex'}">
+<div style="display: flex;">
     <button class="btn altro" (click)="getMore(10)">Altro</button>
 </div>
 <app-card-info *ngIf="infoActive" [data]="pokeInfo"></app-card-info>
