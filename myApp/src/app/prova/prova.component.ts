@@ -43,7 +43,7 @@ export class ProvaComponent implements OnInit {
     }))
   }
 
-  getInfo (name: any, value: string) {
+  getInfo (name: string, value: string) {
     if (value === 'info') {
       this.apiService.getData(name).subscribe((response: any) => {
         if (!this.infoActive) {

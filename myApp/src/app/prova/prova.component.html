@@ -21,7 +21,7 @@
     <div *ngIf="filteredPokemons" class="container">
         <div *ngFor="let pokemon of filteredPokemons | searchFilter:searchTerm " class="card-container"
             [ngClass]="(pokemon.types[0].type.name)">
-            <p> {{pokemon.name}} </p>
+            <p [innerHtml]="(pokemon.name) | highlighter:searchTerm" ></p>
             <div class="container-pokemon">
                 <div class="poke-name">
                     <p>{{pokemon.types[0].type.name}}</p>

@@ -11,6 +11,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CompareComponent } from './compare/compare.component';
+import { HighlighterPipe } from './highlight.pipe';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { CompareComponent } from './compare/compare.component';
     CardInfoComponent,
     SearchFilterPipe,
     CompareComponent,
+    HighlighterPipe,
     
   ],
   imports: [

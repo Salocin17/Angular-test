@@ -40,6 +40,13 @@
     background-color: #655469;
 }
 
+.highlighter {
+    background-color: red;
+    color: red;
+    font-size: 1em;
+    text-decoration: underline;
+  }
+
 .container {
     width: 100%;
     display: grid;
