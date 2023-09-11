@@ -31,8 +31,8 @@
             </div>
         </div>
         <div style="display: flex; gap: 0.5rem;">
-            <button class="btn" (click)="getInfo(pokemon.name)">Info</button>
-            <button class="btn add" (click)="addCompare()">Aggiungi +</button>
+            <button class="btn" (click)="getInfo(pokemon.name, 'info')">Info</button>
+            <button class="btn add" (click)="getInfo(pokemon.name, 'compare')">Aggiungi +</button>
         </div>
     </div>
 </div>
@@ -40,3 +40,4 @@
     <button class="btn more" (click)="getMore(10)">Altro</button>
 </div>
 <app-card-info *ngIf="infoActive" [data]="pokeInfo"></app-card-info>
+<app-compare *ngIf="compareActive" [data]="pokeCompare"></app-compare>

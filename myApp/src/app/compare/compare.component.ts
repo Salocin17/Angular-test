@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-compare',
@@ -7,7 +7,19 @@ import { Component } from '@angular/core';
 })
 export class CompareComponent {
 
+  @Input() data: any;
+
+  pokeCompare: any = [];
+  
+
+  ngOnInit(): void {
     
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.pokeCompare = [...this.pokeCompare, this.data]
+    console.log(this.pokeCompare);
+  }
 
 
 }

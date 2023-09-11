@@ -14,6 +14,8 @@ export class ProvaComponent implements OnInit {
   searchTerm: any = '';
   filteredPokemons: any[] = [];
   selectedType: string = 'all';
+  pokeCompare: any[] = [];
+  compareActive = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -35,14 +37,23 @@ export class ProvaComponent implements OnInit {
     }))
   }
 
-  getInfo (name: any) {
-    this.apiService.getData(name).subscribe((response: any) => {
-      if (!this.infoActive) {
-          this.pokeInfo.splice(0)
-          this.pokeInfo.push(response);
-      } 
-      this.infoActive = !this.infoActive;
-    })
+  getInfo (name: any, value: string) {
+    if (value === 'info') {
+      this.apiService.getData(name).subscribe((response: any) => {
+        if (!this.infoActive) {
+            this.pokeInfo.splice(0)
+            this.pokeInfo.push(response);
+        } 
+        this.infoActive = !this.infoActive;
+      })
+    } if (value === 'compare') {
+      this.apiService.getData(name).subscribe((response: any) => {
+        const result = [];
+        result.push(response)
+        this.pokeCompare = [...result];
+        this.compareActive = true;
+      })
+    }
   }
 
   @HostListener('document:click', ['$event'])
@@ -64,8 +75,6 @@ export class ProvaComponent implements OnInit {
     }
   }
 
-  addCompare() {
-    
-  }
+
 }
 
