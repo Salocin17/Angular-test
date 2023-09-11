@@ -1,8 +1,6 @@
-<div style="display: flex; width: 100%; justify-content: center;">
-    <input class="searchBar" type="text" name="searchTerm" 
-      placeholder="Cerca Pokemon"
-      [(ngModel)]="searchTerm"  />
-    <select #types name="" id="" (change)="filterByType(types.value)">
+<div style="display: flex; width: 100%; justify-content: center; gap: 1rem;">
+    <input class="searchBar" type="text" name="searchTerm" placeholder="Cerca Pokemon" [(ngModel)]="searchTerm" />
+    <select #types name="" id="" (change)="filterByType(types.value)" class="select-type">
         <option value="all">All</option>
         <option value="grass">Grass</option>
         <option value="fire">Fire</option>
@@ -17,24 +15,28 @@
         <option value="psychic">Psychic</option>
         <option value="rock">Rock</option>
         <option value="ghost">Ghost</option>
-      </select> 
+    </select>
 </div>
-<div *ngIf="filteredPokemons" class="container" >
-<div *ngFor="let pokemon of filteredPokemons | searchFilter:searchTerm " class="card-container" [ngClass]="(pokemon.types[0].type.name)">
-    <p> {{pokemon.name}} </p>
-    <div class="container-pokemon">
-    <div class="poke-name">
-        <p>{{pokemon.types[0].type.name}}</p>
+<div *ngIf="filteredPokemons" class="container">
+    <div *ngFor="let pokemon of filteredPokemons | searchFilter:searchTerm " class="card-container"
+        [ngClass]="(pokemon.types[0].type.name)">
+        <p> {{pokemon.name}} </p>
+        <div class="container-pokemon">
+            <div class="poke-name">
+                <p>{{pokemon.types[0].type.name}}</p>
+            </div>
+            <div class="poke-image">
+                <img src={{pokemon.sprites.front_default}} alt="">
+                <img src={{pokemon.sprites.back_default}} alt="">
+            </div>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+            <button class="btn" (click)="getInfo(pokemon.name)">Info</button>
+            <button class="btn add" (click)="addCompare()">Aggiungi +</button>
+        </div>
     </div>
-    <div class="poke-image">
-        <img src={{pokemon.sprites.front_default}} alt="" >
-        <img src={{pokemon.sprites.back_default}} alt="" >
-    </div>
-    </div>
-    <button class="btn" (click)="getInfo(pokemon.name)">Info</button>
-</div>
 </div>
 <div style="display: flex;">
-    <button class="btn altro" (click)="getMore(10)">Altro</button>
+    <button class="btn more" (click)="getMore(10)">Altro</button>
 </div>
 <app-card-info *ngIf="infoActive" [data]="pokeInfo"></app-card-info>

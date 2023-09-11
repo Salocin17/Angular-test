@@ -63,5 +63,9 @@ export class ProvaComponent implements OnInit {
       );
     }
   }
+
+  addCompare() {
+    
+  }
 }
 

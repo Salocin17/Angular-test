@@ -10,6 +10,7 @@ import { CardInfoComponent } from './card-info/card-info.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CompareComponent } from './compare/compare.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HeaderComponent,
     CardInfoComponent,
     SearchFilterPipe,
+    CompareComponent,
     
   ],
   imports: [

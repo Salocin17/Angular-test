@@ -77,7 +77,7 @@
     cursor: pointer;
 }
 
-.altro {
+.more {
     background-color: rgb(243, 201, 36);
     margin: 0 auto;
 }
@@ -91,3 +91,10 @@
     background-color: rgba(186, 186, 186, 0.186);
 }
 
+.select-type {
+    border-style: none;
+    padding: 0.5rem;
+    border-style: none;
+    border-radius: 15px;
+    background-color: rgba(186, 186, 186, 0.186);
+}
