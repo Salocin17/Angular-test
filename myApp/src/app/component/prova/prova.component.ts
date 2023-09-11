@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output,} from '@angular/core';
-import { ApiService } from '../servizi/api.service';
+import { ApiService } from '../../servizi/api.service';
 
 @Component({
   selector: 'app-prova',
