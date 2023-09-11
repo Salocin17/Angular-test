@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CompareComponent } from './compare/compare.component';
 import { HighlighterPipe } from './highlight.pipe';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -23,14 +27,16 @@ import { HighlighterPipe } from './highlight.pipe';
     SearchFilterPipe,
     CompareComponent,
     HighlighterPipe,
+    PageNotFoundComponent,
+    LoginComponent,
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     NgSelectModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

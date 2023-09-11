@@ -1,0 +1,28 @@
+.login-page-container {
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.btn {
+    border-style: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background-color: rgba(152, 223, 116, 0.603);
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
