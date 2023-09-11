@@ -17,27 +17,29 @@
         <option value="ghost">Ghost</option>
     </select>
 </div>
-<div *ngIf="filteredPokemons" class="container">
-    <div *ngFor="let pokemon of filteredPokemons | searchFilter:searchTerm " class="card-container"
-        [ngClass]="(pokemon.types[0].type.name)">
-        <p> {{pokemon.name}} </p>
-        <div class="container-pokemon">
-            <div class="poke-name">
-                <p>{{pokemon.types[0].type.name}}</p>
+<div style="margin-bottom: 310px;">
+    <div *ngIf="filteredPokemons" class="container">
+        <div *ngFor="let pokemon of filteredPokemons | searchFilter:searchTerm " class="card-container"
+            [ngClass]="(pokemon.types[0].type.name)">
+            <p> {{pokemon.name}} </p>
+            <div class="container-pokemon">
+                <div class="poke-name">
+                    <p>{{pokemon.types[0].type.name}}</p>
+                </div>
+                <div class="poke-image">
+                    <img src={{pokemon.sprites.front_default}} alt="">
+                    <img src={{pokemon.sprites.back_default}} alt="">
+                </div>
             </div>
-            <div class="poke-image">
-                <img src={{pokemon.sprites.front_default}} alt="">
-                <img src={{pokemon.sprites.back_default}} alt="">
+            <div style="display: flex; gap: 0.5rem;">
+                <button class="btn" (click)="getInfo(pokemon.name, 'info')">Info</button>
+                <button class="btn add" (click)="getInfo(pokemon.name, 'compare')">Aggiungi +</button>
             </div>
-        </div>
-        <div style="display: flex; gap: 0.5rem;">
-            <button class="btn" (click)="getInfo(pokemon.name, 'info')">Info</button>
-            <button class="btn add" (click)="getInfo(pokemon.name, 'compare')">Aggiungi +</button>
         </div>
     </div>
-</div>
-<div style="display: flex;">
-    <button class="btn more" (click)="getMore(10)">Altro</button>
+    <div style="display: flex;">
+        <button class="btn more" (click)="getMore(10)">Altro</button>
+    </div>
 </div>
 <app-card-info *ngIf="infoActive" [data]="pokeInfo"></app-card-info>
-<app-compare *ngIf="compareActive" [data]="pokeCompare"></app-compare>
+<app-compare *ngIf="compareActive" [data]="pokeCompare" (closeCompare)="compareEnd($event)"></app-compare>

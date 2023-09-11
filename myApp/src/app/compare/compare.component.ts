@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-compare',
@@ -8,18 +8,32 @@ import { Component, Input, SimpleChanges } from '@angular/core';
 export class CompareComponent {
 
   @Input() data: any;
+  @Output() closeCompare = new EventEmitter<boolean>();
 
-  pokeCompare: any = [];
+  pokeCompare: any[] = [];
+  pokeCompareStart: boolean = false;
   
 
   ngOnInit(): void {
     
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges() {
     this.pokeCompare = [...this.pokeCompare, this.data]
-    console.log(this.pokeCompare);
   }
 
+  removeCompare(e: number) {
+    this.pokeCompare.splice(e, 1)
+  }
+
+  compareStart() {
+    this.pokeCompareStart = true;
+  }
+
+  compareEnd () {
+    this.pokeCompareStart = false;
+    this.closeCompare.emit(false)
+    this.pokeCompare = []
+  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output,} from '@angular/core';
 import { ApiService } from '../servizi/api.service';
 
 @Component({
@@ -17,6 +17,8 @@ export class ProvaComponent implements OnInit {
   pokeCompare: any[] = [];
   compareActive = false;
 
+  
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
@@ -24,9 +26,13 @@ export class ProvaComponent implements OnInit {
       this.apiService.getData(element.name).subscribe((response: any) => {
         this.pokemons.push(response);
         this.filteredPokemons = this.pokemons;
-        console.log(this.pokemons);
       })
     }))
+    console.log(this.pokemons);
+  }
+
+  ngOnChanges() {
+    console.log(this.compareActive);
   }
 
   getMore(e: number){
@@ -75,6 +81,9 @@ export class ProvaComponent implements OnInit {
     }
   }
 
+  compareEnd (e: boolean) {
+    this.compareActive = e;
+  }
 
 }
 

@@ -1,22 +1,55 @@
-<div class="compare-container">
+<div *ngIf="pokeCompare" class="compare-container">
     <div class="compare-container-cards">
-        <!-- <div *ngIf="filteredPokemons" class="container">
-            <div *ngFor="let pokemon of comparePokemons" class="card-container"
-                [ngClass]="(pokemon.types[0].type.name)">
-                <p> {{pokemon.name}} </p>
+        <div class="container">
+            <div *ngFor="let pokemon of pokeCompare, index as i" class="card-container" [ngClass]="(pokemon[0].types[0].type.name)">
+                <p> {{pokemon[0].name}} </p>
                 <div class="container-pokemon">
                     <div class="poke-name">
-                        <p>{{pokemon.types[0].type.name}}</p>
+                        <p>{{pokemon[0].types[0].type.name}}</p>
                     </div>
                     <div class="poke-image">
-                        <img src={{pokemon.sprites.front_default}} alt="">
-                        <img src={{pokemon.sprites.back_default}} alt="">
+                        <img src={{pokemon[0].sprites.front_default}} alt="">
+                        <img src={{pokemon[0].sprites.back_default}} alt="">
                     </div>
                 </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn remove" (click)="removeCompare(i)">Rimuovi -</button>
+                </div>
             </div>
-        </div> -->
+        </div>
     </div>
-    <div class="compare-container-btn">
+    <div class="compare-container-btn" style="display: flex;" (click)="compareStart()">
         <button class="compare btn">Compara</button>
+    </div>
+</div>
+<div *ngIf="pokeCompareStart" class="compare-container-start">
+    <div style="display: flex; justify-content: flex-end; padding: 1rem;">
+        <button class="btn" (click)="compareEnd()">X</button>
+    </div>
+    <div class="compare-container-cards">
+        <div class="container-start">
+            <div *ngFor="let pokemon of pokeCompare, index as i" class="compare-cards">
+                <span style="font-size: 1.5rem; font-weight: bold;"> {{pokemon[0].name}} </span>
+                <img src={{pokemon[0].sprites.front_default}} alt="">    
+                <div>
+                    <span style="font-size: 1.2rem; font-weight: 600;">{{pokemon[0].types[0].type.name}}</span>
+                </div>
+                <div>
+                    <span>Altezza: </span><span  style="font-weight: 600;">{{pokemon[0].height}}</span>
+                </div> 
+                <div>
+                    <span>Esperienza base: </span><span  style="font-weight: 600;">{{pokemon[0].base_experience}}</span>
+                </div>   
+                <div>
+                    <span>Atk: </span><span  style="font-weight: 600;">{{pokemon[0].stats[1].base_stat}}</span>
+                </div> 
+                <div>
+                    <span>Def: </span><span  style="font-weight: 600;">{{pokemon[0].stats[2].base_stat}}</span>
+                </div> 
+                <div>
+                    <span>Velocità: </span><span  style="font-weight: 600;">{{pokemon[0].stats[5].base_stat}}</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
